@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyProjectNetwork</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'bootstrap', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+  <section>
+    <header class="row header-block">
+      <p class="col-md-10">
+        my small website
+      </p>
+      <div class="col-md-2 "> <%= link_to 'New Post', new_post_path %> </div>
+    </header>
+  </section>
+  <section>
+    <div class="row">
+      <div class="col-lg-12">
+        <%= yield %>
+      </div>
+    </div>
+  </section>
+  <footer>
+
+  </footer>
+
+
+  </body>
+</html>
