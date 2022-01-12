@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_12_094847) do
+ActiveRecord::Schema.define(version: 2022_01_11_220957) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "authors", force: :cascade do |t|
     t.string "first_name"
@@ -25,10 +28,9 @@ ActiveRecord::Schema.define(version: 2022_01_12_094847) do
     t.string "title"
     t.text "content"
     t.string "image"
+    t.integer "author_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "authtor_id"
-    t.integer "author_id"
   end
 
 end

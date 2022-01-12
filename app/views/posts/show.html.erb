@@ -10,19 +10,21 @@
   <%= @post.title %>
 </p>
 
-<figure>
-  <%= image_tag "main.jpg", class: "img-blog", alt: "Img block" %>
-</figure>
+<p>
+  <strong>Image:</strong>
+  <%= @post.image %>
+</p>
+
+<p>
+  <%= image_tag @post.image,class: "img-blog", alt: "Img block" %>
+</p>
 
 <p>
   <strong>Content:</strong>
   <%= @post.content %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
+
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
