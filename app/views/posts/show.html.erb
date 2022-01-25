@@ -1,32 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="page-header">
+    <div class="header-btn" data-bs-toggle="tooltip" title="Back to posts">
+      <%= link_to '', posts_path, class: "btn btn-dark fa fa-arrow-left" %>
+    </div>
+    <h1><%= @post.title %></h1>
+    <div class="header-btns">
+      <div class="inner" data-bs-toggle="tooltip" title="Edit a post">
+        <%= link_to '', edit_post_path(@post), class: "btn btn-dark fa fa-edit" %>
+      </div>
+      <div class="inner" data-bs-toggle="tooltip" title="Destroy a post">
+        <%= link_to '', post_path(@post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark fa fa-trash" %>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @post.author.full_name %>
-</p>
+  <h4>This post has been updated <%= distance_of_time_in_words(Time.now, @post.updated_at) %> ago.</h4>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
+  <div class="post-container">
+    <div class="image-container">
+      <%= image_tag(@post.image, width: '600') %>
+    </div>
+    <div class="info-container">
+      <p>
+        <strong>Date:</strong>
+        <%= @post.created_at.strftime("%a, %m/%d/%y, %r") %>
+      </p>
 
-<p>
-  <%= image_tag @post.image,class: "img-blog", alt: "Img block" %>
-</p>
+      <p>
+        <strong>Author:</strong>
+        <%= @post.author.full_name %>
+      </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-<hr>
-
+      <p>
+        <strong>Content:</strong>
+        <%= @post.content %>
+      </p>
+    </div>
+  </div>
+  <div class="comments-container">
+    <div class="comments-select">
+      <h2>Show such comments:</h2>
+      <%= select_tag "status", options_for_select([['Published', 1], ['Unpublished', 0]], @comments_scope || 1), :onchange => ("window.location.href = '/posts/#{@post.id}?comments='+$(this).val();") %>
+    </div>
+    <h3><%= pluralize(@comments.size, "comment") %> available.</h3>
+    <%= render @comments %>
+  </div>
+  <div class="create-comment-container">
+    <h2>Leave your comment:</h2>
+    <%= render 'comments/form' %>
+  </div>
+</div>
