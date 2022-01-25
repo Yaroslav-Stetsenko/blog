@@ -6,6 +6,36 @@
 
   <p id="notice"><%= notice %></p>
 
+  <div class="row">
+    <% @posts.each do |post| %>
+    <div class="col-sm-6">
+        <h2><%= post.title%></h2> <p><%= post.author.full_name %></p>
+        <p><%= post.content %></p>
+        <figure><%= image_tag(post.image, width: '200', class: "mx-auto d-block") %></figure>
+        <p><%= post.views_count %></p>
+        <div class="outer">
+          <div class="inner" data-bs-toggle="tooltip" title="Show a post">
+            <%= link_to '', post, class: "btn btn-dark fa fa-eye" %>
+          </div>
+          <div class="inner" data-bs-toggle="tooltip" title="Edit a post">
+            <%= link_to '', edit_post_path(post), class: "btn btn-dark fa fa-edit" %>
+          </div>
+          <div class="inner" data-bs-toggle="tooltip" title="Destroy a post">
+            <%= link_to '', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark fa fa-trash" %>
+          </div>
+        </div>
+    </div>
+      <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
   <table class="table table-light table-bordered table-striped table-hover">
     <thead>
     <tr class="table-dark">
@@ -19,28 +49,7 @@
     </thead>
 
     <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.author.full_name %></td>
-        <td data-bs-toggle="tooltip" title="Show a post"><%= link_to post.title, post, class: "link-dark" %></td>
-        <td><%= post.content %></td>
-        <td><%= image_tag(post.image, width: '200', class: "mx-auto d-block") %></td>
-        <td class="views-count"><%= post.views_count %></td>
-        <td>
-          <div class="outer">
-            <div class="inner" data-bs-toggle="tooltip" title="Show a post">
-              <%= link_to '', post, class: "btn btn-dark fa fa-eye" %>
-            </div>
-            <div class="inner" data-bs-toggle="tooltip" title="Edit a post">
-              <%= link_to '', edit_post_path(post), class: "btn btn-dark fa fa-edit" %>
-            </div>
-            <div class="inner" data-bs-toggle="tooltip" title="Destroy a post">
-              <%= link_to '', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-dark fa fa-trash" %>
-            </div>
-          </div>
-        </td>
-      </tr>
-    <% end %>
+
     </tbody>
   </table>
 </div>
