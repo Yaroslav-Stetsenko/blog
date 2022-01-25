@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   resources :authors
   root 'posts#index'
   resources :posts do
