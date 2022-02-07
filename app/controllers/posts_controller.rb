@@ -1,14 +1,25 @@
 class PostsController < ApplicationController
+  attr_accessor :records
+
   before_action :set_post, only: %i[show edit update destroy]
   after_action :track_view, only: :show
+  before_action :authorize, only: %i[edit update create new]
+  before_action :author?, only: %i[edit update destroy]
+  before_action :track_visit, only: %i[index show]
 
   def index
-    @posts = Post.includes(:author).order(created_at: :desc)
+    @posts = Post.includes(:author)
+    @pagy, @posts = pagy(Post.all.order(created_at: :desc), items: 8)
+  end
+
+  def search
+    @posts = Post.where('title LIKE ?', "%#{params[:q]}%")
   end
 
   def show
-    @comments_scope = params[:comments]
-    @comments = if @comments_scope == '0'
+    @comments = @post.comments.order(created_at: :desc)
+    @comments_scope = params.dig(:post, :comments_scope)
+    @comments = if @comments_scope == 'Unpublished'
                   @post.comments.unpublished
                 else
                   @post.comments.published
@@ -16,7 +27,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = Post.includes(:author).new
   end
 
   def edit; end
@@ -63,10 +74,14 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :content, :image, :author_id)
+    params.require(:post).permit(:title, :content, :image, :status).merge(author_id: current_author.id)
   end
 
   def track_view
-    @post.views.create
+    @post.increment!(:views_count)
+  end
+
+  def track_visit
+    cookies[:visits_count] = cookies[:visits_count].to_i + 1
   end
 end

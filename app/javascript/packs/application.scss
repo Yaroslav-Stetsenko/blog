@@ -1,0 +1,286 @@
+@import "~bootstrap/scss/bootstrap";
+
+header .logo a{
+  font: normal small-caps 25px "Roboto Thin";
+  text-decoration: none;
+}
+
+.logo{
+  width: 200px;
+  margin: 10px;
+}
+
+.btn{
+  margin: 10px;
+}
+
+.btn-success{
+  background-color: #0d6efd;
+}
+
+.fa-user::before, .fa-plus-circle::before, .fa-sign-out::before, .fa-sign-in::before{
+  margin: 5px;
+}
+
+.nav-item{
+  display: flex;
+  align-items: center;
+}
+.nav-content{
+  justify-content: end;
+  align-items: end;
+}
+
+
+.form-item{
+  height: 40px;
+  margin: 10px;
+}
+
+.form-item .btn{
+  margin: 0;
+}
+
+.outer {
+  display: flex;
+  justify-content: end;
+}
+.card h2, .post-page{
+  text-transform: capitalize;
+}
+
+.post-page, .comment-page{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-page-a{
+  justify-content: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.post-page-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.new-post-page-header {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.header-btn {
+  align-self: center;
+}
+
+.header-btns {
+  align-self: center;
+}
+
+.btn {
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  margin-top: 10px;
+}
+
+table {
+  table-layout: auto;
+}
+
+
+
+.inner {
+  display: inline-block;
+}
+
+#error_explanation {
+  color: #f00;
+}
+
+ul {
+  list-style: none;
+  margin: 0 0 18px 0;
+}
+
+.post-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#notice {
+  margin: 16px 0;
+  font-weight: bold;
+}
+
+.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.card {
+  width: 560px;
+}
+
+.form-label {
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+.form-select {
+  display: inline-block;
+  width: auto;
+}
+
+.form-control {
+  display: inline-block;
+  width: auto;
+}
+
+.posts-form {
+  width: 800px;
+}
+
+.form-control {
+  width: 100%;
+}
+
+.actions {
+  text-align: center;
+}
+
+.comments-container {
+  width: 100%;
+}
+
+.comments-select {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h4 {
+  margin: 0 !important;
+}
+
+.card {
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.new-post-submit-btn {
+  text-align: center;
+}
+
+.views-count {
+  text-align: center;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.btn-success {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.btn-info {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.btn-danger {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.header-text {
+  font-weight: bold;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.h8 {
+  font-weight: normal;
+  margin: 0
+}
+
+.comments-buttons {
+  padding-top: 10px;
+  padding-bottom: 0;
+}
+
+.sign-up-field {
+  margin-bottom: 10px;
+}
+
+.edit-profile-field {
+  margin-bottom: 10px;
+}
+
+.log-in-field {
+  margin-bottom: 10px;
+}
+
+.sign-up-btn {
+  padding-top: 10px;
+  text-align: center;
+  width: 233px
+}
+
+.profile-info-item {
+  padding-bottom: 10px;
+}
+
+.edit-profile-btn {
+  text-align: center;
+}
+
+.log-in-btn {
+  width: 233px;
+  text-align: center;
+}
+
+.card {
+  width: 100%;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.error_messages {
+  color: red;
+}
+
+.navbar-nav {
+  justify-content: space-between;
+}
+*/

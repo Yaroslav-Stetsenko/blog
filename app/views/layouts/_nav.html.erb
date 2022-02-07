@@ -1,0 +1,29 @@
+
+<nav class="col-lg-6">
+  <div class="row">
+      <ul class="d-flex nav-content">
+        <% if current_author %>
+        <li class="nav-item">
+           <p><%= current_author.email %></p>
+        </li>
+          <li class="nav-item">
+              <%= link_to "Profile", current_author, class: "btn btn-success fa fa-user" %>
+          </li>
+          <li class="nav-item">
+              <%= link_to 'New', new_post_path, class: "btn btn-success fa fa-plus-circle" %>
+          </li>
+        <% end %>
+              <% if current_author %>
+                <li class="nav-item">
+                  <%= link_to "Out", logout_path, class: "btn btn-success fa fa-sign-out" %>
+
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "Sign Up", signup_path, class: "btn btn-success fa fa-sign-in" %>or
+                  <%= link_to "Log In", login_path, class: "btn btn-success" %>
+              <% end %>
+              </li>
+      </ul>
+  </div>
+</nav>
